@@ -1,20 +1,18 @@
 li.leaf{
   margin: 0.21%;
   padding: 0.02%;
-  display: inline;
+  display: inline-block;
 }
 
 a{
-  display:inline-block;
   margin: 0.4em;
   text-overflow: ellipsis;
   word-wrap: break-word;
-   word-break: break-all;
+  word-break: break-all;
 }
 
 .button {
     display: inline-block;
-    font-size: 100%;
     padding: 0.5em;
     color: rgba(0, 0, 0, 0.80); /* rgba supported */
     border: none rgba(0, 0, 0, 0);  /*IE9 + everything else*/
@@ -39,6 +37,7 @@ ul{
   padding: 0;
   box-sizing: border-box;
   list-style: none;
+  min-width: 100%;
 }
 
 .panel{
