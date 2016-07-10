@@ -10,7 +10,6 @@
   "offline_enabled": true,
   "permissions": [
     "tabs",
-    "bookmarks",
-    "management"
+    "bookmarks"
     ]
 }
