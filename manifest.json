@@ -9,7 +9,6 @@
   "description":"A Fast and Light weight new tab",
   "offline_enabled": true,
   "permissions": [
-    "tabs",
     "bookmarks"
     ]
 }
