@@ -11,12 +11,42 @@ function display_tree(bookmarks) {
         subtrees.push(bookmarks[i]);
       }
       else {
-        output += "<li class='leaf'><a class='button' href='" + bookmarks[i].url + "'>" + bookmarks[i].title + "</a></li>";
+        output += bookmarkLeaf(bookmarks[i]);
       }
   }
   for(var i = 0; i < subtrees.length; i++){
-     output += "<div class = 'panel'><h2 class = 'panel-title'>" + subtrees[i].title + "</h2>" + 
-     display_tree(subtrees[i].children) + "</div>";
+     output += bookmarkPanel(subtrees[i]);
   }
   return output;
+}
+
+function bookmarkPanel(subtree) {
+  return `
+    <div class = "panel">
+      <h2 class = "panel-title"> ${subtree.title}</h2> 
+      ${display_tree(subtree.children)}
+    </div>`;
+}
+
+function faviconImgTag(url) {
+  return `<img class="favicon" width=16px height=16px src= "chrome://favicon/${url}"/>`
+}
+
+function bookmarkLeaf(bookmark) {
+  if(validate(bookmark.url)){
+    return `
+    <li class='leaf'>
+      <a class='button' href="${bookmark.url}">
+        ${faviconImgTag(bookmark.url)}
+        ${bookmark.title}
+      </a>
+    </li>`;
+  }
+  else{
+    return '';
+  }
+}
+
+function validate(url) {
+  return /(^http)|(^ftp)/.test(url);
 }

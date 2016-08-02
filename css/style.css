@@ -48,3 +48,8 @@ ul{
   text-align: center;
   border: 0.01em solid lightblue;
 }
+
+.favicon{
+  vertical-align: middle;
+  padding-right: 1px;
+}
