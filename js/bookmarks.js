@@ -1,3 +1,5 @@
+chrome.runtime.setUninstallURL("https://goo.gl/KiRZhg");
+
 chrome.bookmarks.getSubTree('0', function(bookmarks){
   var output = "<ul class=''>" + display_tree(bookmarks) + "</ul>";
   document.body.innerHTML = output;
