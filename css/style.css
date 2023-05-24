@@ -4,6 +4,10 @@ li.leaf{
   display: inline-block;
 }
 
+body {
+  background-color: rgb(15, 15, 15);
+}
+
 a{
   margin: 0.4em;
   text-overflow: ellipsis;
@@ -14,12 +18,16 @@ a{
 .button {
     display: inline-block;
     padding: 0.5em;
-    color: rgba(0, 0, 0, 0.80); /* rgba supported */
+    color: rgb(241, 241, 241); /* rgba supported */
     border: none rgba(0, 0, 0, 0);  /*IE9 + everything else*/
-    background-color: #E9E9E9;
+    background-color: rgb(39, 39, 39);
     text-decoration: none;
     text-overflow: clip;
     word-wrap: break-word;
+}
+
+.button:hover {
+  background-color: #545454;
 }
 
 .panel-title{
