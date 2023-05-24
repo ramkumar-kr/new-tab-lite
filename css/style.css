@@ -4,6 +4,10 @@ li.leaf{
   display: inline-block;
 }
 
+body {
+  background-color: black;
+}
+
 a{
   margin: 0.4em;
   text-overflow: ellipsis;
