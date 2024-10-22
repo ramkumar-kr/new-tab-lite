@@ -14,9 +14,8 @@ a{
 .button {
     display: inline-block;
     padding: 0.5em;
-    color: rgba(0, 0, 0, 0.80); /* rgba supported */
-    border: none rgba(0, 0, 0, 0);  /*IE9 + everything else*/
-    background-color: #E9E9E9;
+    color: ButtonText;
+    background-color: ButtonFace;
     text-decoration: none;
     text-overflow: clip;
     word-wrap: break-word;
@@ -25,7 +24,8 @@ a{
 .panel-title{
   align-content: center;
   text-align: center;
-  background-color: lightblue;
+  background-color: Highlight;
+  color: ButtonText;
   border-collapse: collapse;
   padding-top: 0;
   margin-top: 0;
@@ -46,10 +46,16 @@ ul{
   margin-top: 1.1%;
   margin-bottom: 1.1%;
   text-align: center;
-  border: 0.01em solid lightblue;
+  border-width: 0.01em;
+  border-style: solid;
+  border-color: Highlight;
 }
 
 .favicon{
   vertical-align: middle;
   padding-right: 1px;
+}
+
+:root {
+  color-scheme: light dark;
 }

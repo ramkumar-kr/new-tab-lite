@@ -1,6 +1,6 @@
 chrome.runtime.setUninstallURL("https://goo.gl/KiRZhg");
 
-chrome.bookmarks.getSubTree('0', function(bookmarks){
+chrome.bookmarks.getSubTree('0', function (bookmarks) {
   var output = "<ul class=''>" + display_tree(bookmarks) + "</ul>";
   document.body.innerHTML = output;
 });
@@ -8,16 +8,16 @@ chrome.bookmarks.getSubTree('0', function(bookmarks){
 function display_tree(bookmarks) {
   var output = '';
   var subtrees = [];
-  for (var i=0; i < bookmarks.length; i++) {
+  for (var i = 0; i < bookmarks.length; i++) {
     if (bookmarks[i].children) {
-        subtrees.push(bookmarks[i]);
-      }
-      else {
-        output += bookmarkLeaf(bookmarks[i]);
-      }
+      subtrees.push(bookmarks[i]);
+    }
+    else {
+      output += bookmarkLeaf(bookmarks[i]);
+    }
   }
-  for(var i = 0; i < subtrees.length; i++){
-     output += bookmarkPanel(subtrees[i]);
+  for (var i = 0; i < subtrees.length; i++) {
+    output += bookmarkPanel(subtrees[i]);
   }
   return output;
 }
@@ -30,12 +30,19 @@ function bookmarkPanel(subtree) {
     </div>`;
 }
 
+function faviconURL(u) {
+  const url = new URL(chrome.runtime.getURL("/_favicon/"));
+  url.searchParams.set("pageUrl", u);
+  url.searchParams.set("size", "128");
+  return url.toString();
+}
+
 function faviconImgTag(url) {
-  return `<img class="favicon" width=16px height=16px src= "chrome://favicon/${url}"/>`
+  return `<img class="favicon" width=16px height=16px src= "${faviconURL(url)}"/>`
 }
 
 function bookmarkLeaf(bookmark) {
-  if(validate(bookmark.url)){
+  if (validate(bookmark.url)) {
     return `
     <li class='leaf'>
       <a class='button' href="${bookmark.url}">
@@ -44,7 +51,7 @@ function bookmarkLeaf(bookmark) {
       </a>
     </li>`;
   }
-  else{
+  else {
     return '';
   }
 }
